@@ -3,6 +3,12 @@ export EDITOR=vim
 export PAGER=less
 # export BROWSER="Brave Browser"
 
+if [ -n $TMUX ]; then
+      unset zle_bracketed_paste
+fi
+export TERM="xterm-256color"
+bindkey "^R" history-incremental-search-backward
+
 # Directories
 # export WD="$HOME/Library/Mobile Documents/com~apple~CloudDocs/File Hub/"
 export DOTFILE_FOLDER="$HOME/work/dotfiles/"
