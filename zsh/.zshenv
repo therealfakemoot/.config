@@ -1,33 +1,33 @@
 # Apps
-export EDITOR=nvim
+export EDITOR=vim
 export PAGER=less
-export BROWSER="Brave Browser"
+# export BROWSER="Brave Browser"
 
 # Directories
-export WD="$HOME/Library/Mobile Documents/com~apple~CloudDocs/File Hub/"
-export DOTFILE_FOLDER="$HOME/.config/"
-export VAULT_PATH="$HOME/main-vault/"
-export ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
-export PASSWORD_STORE_DIR="$HOME/.password-store/" # default value, but still needed for bkp script
+# export WD="$HOME/Library/Mobile Documents/com~apple~CloudDocs/File Hub/"
+export DOTFILE_FOLDER="$HOME/work/dotfiles/"
+# export VAULT_PATH="$HOME/main-vault/"
+# export ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
+# export PASSWORD_STORE_DIR="$HOME/.password-store/" # default value, but still needed for bkp script
 
 # to prevent commit spam on dotfile repo, store data in iCloud instead
-export DATA_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Dotfolder" 
+# export DATA_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Dotfolder"
 
-# defines location of the rest of the zsh config 
-export ZDOTDIR="$DOTFILE_FOLDER/zsh" 
+# defines location of the rest of the zsh config
+export ZDOTDIR="$DOTFILE_FOLDER/zsh"
 
 #───────────────────────────────────────────────────────────────────────────────
 
 # OpenAI API Key stored outside of public git repo (symlinked file)
 # (key is accessed by nvim as well as shell plugins)
-OPENAI_API_KEY=$(tr -d "\n" < "$ICLOUD/Dotfolder/private dotfiles/openai_api_key")
-export OPENAI_API_KEY
+# OPENAI_API_KEY=$(tr -d "\n" < "$ICLOUD/Dotfolder/private dotfiles/openai_api_key")
+# export OPENAI_API_KEY
 
 # Pass Config
-export PASSWORD_STORE_CLIP_TIME=60
-export PASSWORD_STORE_GENERATED_LENGTH=32
-export PASSWORD_STORE_ENABLE_EXTENSIONS=false
-export PASSWORD_STORE_CHARACTER_SET_NO_SYMBOLS="[:alnum:]"
+# export PASSWORD_STORE_CLIP_TIME=60
+# export PASSWORD_STORE_GENERATED_LENGTH=32
+# export PASSWORD_STORE_ENABLE_EXTENSIONS=false
+# export PASSWORD_STORE_CHARACTER_SET_NO_SYMBOLS="[:alnum:]"
 
 # vidir availability
 export PATH="$DOTFILE_FOLDER/zsh/plugins":$PATH

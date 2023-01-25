@@ -15,11 +15,11 @@ fi
 # INFO `brew --prefix` ensures the right path is inserted on M1 as well as  non-M1 macs
 
 # BUG autosuggesstions do not work for obsidian-terminal yet
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # has to be loaded *after* zsh syntax highlighting
-source "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+# source "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # Magic enter
 source "$DOTFILE_FOLDER/zsh/plugins/magic_enter.zsh"

@@ -19,7 +19,7 @@ export MAGIC_ENTER_GIT_COMMAND="exagit"
 export MAGIC_ENTER_OTHER_COMMAND="exa"
 
 # zoxide
-export _ZO_DATA_DIR="$DATA_DIR/zoxide/"
+export _ZO_DATA_DIR="$HOME/.zoxide/"
 # export _ZO_EXCLUDE_DIRS=""
 eval "$(zoxide init --no-cmd zsh)" # needs to be placed after compinit
 
@@ -29,7 +29,8 @@ eval "$(zoxide init --no-cmd zsh)" # needs to be placed after compinit
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets regexp root)
 
 # shellcheck disable=SC2034,SC2154
-ZSH_HIGHLIGHT_STYLES[root]='bg=red' # highlight red when currently root
+# My Zsh version is too old for this
+# ZSH_HIGHLIGHT_STYLES[root]='bg=red' # highlight red when currently root
 
 # # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/regexp.md
 typeset -A ZSH_HIGHLIGHT_REGEXP
