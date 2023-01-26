@@ -1,5 +1,8 @@
 # shellcheck disable=SC1090,SC1091,SC2292
 
+# TODO: This is a huge blanket import. It'd be nice to trim this down?
+zmodload zsh/complist
+
 # activate completions, also needed for ZSH auto suggestions & completions
 # must be loaded before plugins
 autoload compinit -Uz +X && compinit

@@ -75,4 +75,3 @@ if command -v pandoc &> /dev/null; then
 		eval "$(pandoc --bash-completion)" # https://groups.google.com/g/pandoc-discuss/c/Ot019yRiJFQ/m/VPchuJRkBQAJ
 	}
 fi
-
