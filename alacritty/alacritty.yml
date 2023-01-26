@@ -61,8 +61,8 @@ colors:
     cursor: '0xffffff'
 
 font:
-  size: 26
-  main: &font JetBrainsMonoNL Nerd Font
+  size: 20
+  main: &font SauceCodePro Nerd Font
   normal:
     family: *font
     style: Regular
@@ -84,10 +84,6 @@ font:
     y: 1  # equivalent to line height. However, some nerdfont looks off with it, so use low values
     x: 1  # equivalent to letter spacing
 window:
-  decorations: buttonless
-  position:
-    x: 710  # to the side for Twitterrific
-    y: 0
   dimensions:
     columns: 100
     lines: 50
@@ -98,13 +94,11 @@ window:
 scrolling:
   history: 4000
   multiplier: 3
-working_directory: /Users/chrisgrieser/Library/Mobile Documents/com~apple~CloudDocs/File
-  Hub/
 cursor:
   style:
     shape: Block
     blinking: Always
-    blink_interval: 500
+    blink_interval: 400
     unfocused_hollow: true
   vi_mode_style:  # alacritty's vi mode, not the zsh vi mode
     shape: Underline
