@@ -13,10 +13,10 @@ function sh() {
 
 # GET A BETTER MAN
 # first arg: command, second arg: search term
-function man() {
+function _man() { # Sorry, the pop-out terminal doesn't work for my setups.
 	if ! command -v alacritty &>/dev/null; then echo "alacritty not installed." && exit 1; fi
 	if ! command -v "$1" &>/dev/null; then echo "$1 not installed." && exit 1; fi
-	
+
 	local alacrittyConfig="$HOME/.config/alacritty/man-page.yml"
 	local title="man: $1"
 	local isBuiltIn=false
