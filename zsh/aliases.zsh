@@ -18,9 +18,9 @@ alias p='pass'
 
 # added verbosity
 alias rm='rm -v'
-alias mv='mv -v'
+alias mv='mv -iv'
 alias ln='ln -v'
-alias cp='cp -v'
+alias cp='cp -ipv'
 
 # defaults
 alias grep='grep --ignore-case --color'
