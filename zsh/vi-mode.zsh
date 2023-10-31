@@ -61,20 +61,6 @@ bindkey -M vicmd -s '?' "ibindkey -M vicmd;bindkey -M viins^M" # this properly r
 
 # yank to system clipboard – https://stackoverflow.com/a/37411340
 # equivalent to `set clipboard=unnamed` (but only for y)
-function vi-yank-pbcopy {
-	zle vi-yank
-	echo "$CUTBUFFER" | pbcopy
-}
-zle -N vi-yank-pbcopy
-bindkey -M vicmd 'y' vi-yank-pbcopy
-
-# q in normal mode exists the Terminal
-function normal-mode-exit {
-	exit
-}
-zle -N normal-mode-exit
-bindkey -M vicmd 'q' normal-mode-exit
-
 
 #-------------------------------------------------------------------------------
 
