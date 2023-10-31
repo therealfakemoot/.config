@@ -1,4 +1,0 @@
-# disable in neovide, since it always messes up stuff
-
-filter_exec: Neovide
-enable: false
