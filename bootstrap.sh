@@ -4,7 +4,7 @@
 setopt INTERACTIVE_COMMENTS
 # ask for credentials upfront
 sudo -v
-DOTFILE_FOLDER="$HOME/work/dotfiles/"
+DOTFILE_FOLDER="$HOME/work/personal/dotfiles/"
 
 # INFO requires SSH setup
 # cd ~

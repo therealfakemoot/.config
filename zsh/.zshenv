@@ -11,7 +11,7 @@ bindkey "^R" history-incremental-search-backward
 
 # Directories
 # export WD="$HOME/Library/Mobile Documents/com~apple~CloudDocs/File Hub/"
-export DOTFILE_FOLDER="$HOME/work/dotfiles/"
+export DOTFILE_FOLDER="$HOME/work/personal/dotfiles/"
 # export VAULT_PATH="$HOME/main-vault/"
 # export ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
 # export PASSWORD_STORE_DIR="$HOME/.password-store/" # default value, but still needed for bkp script

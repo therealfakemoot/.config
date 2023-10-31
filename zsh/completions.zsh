@@ -75,3 +75,19 @@ if command -v pandoc &> /dev/null; then
 		eval "$(pandoc --bash-completion)" # https://groups.google.com/g/pandoc-discuss/c/Ot019yRiJFQ/m/VPchuJRkBQAJ
 	}
 fi
+
+set -k
+# To enable zsh auto-completion, run: eval "$(/usr/local/bin/akamai --zsh)"
+# We recommend adding this to your .zshrc file
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
+_akamai_cli_bash_autocomplete() {
+    local cur opts base
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts=$( ${COMP_WORDS[@]:0:$COMP_CWORD} --generate-auto-complete )
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
+}
+
+complete -F _akamai_cli_bash_autocomplete akamai

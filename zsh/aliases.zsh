@@ -25,6 +25,7 @@ alias cp='cp -ipv'
 # defaults
 alias grep='grep --ignore-case --color'
 alias ls='ls -G' # colorize by default
+alias ll='ls -GFahl'
 alias which='which -a'
 alias mkdir='mkdir -p'
 alias pip="pip3"
