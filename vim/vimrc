@@ -1,0 +1,237 @@
+" ~/.vimrc
+
+set t_BE=                              "Disable bracketed paste
+set t_Co=256
+
+""" Vim-Plug ====================================
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')      " Minimalist Vim Plugin Manager
+
+
+""" Settings ====================================
+
+set nocompatible                       " be iMproved, required
+set nobackup
+set noswapfile
+set termencoding=utf-8                 " UTF8 as default encoding
+set encoding=utf-8                     " ...
+
+" When using vimdiff, enable wordwrap.
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+
+Plug 'tpope/vim-sensible'              " Sensible Defaults
+
+
+" autocomplete stuff
+set completeopt+=noinsert " this is to address an annoyance with ALE's auto complete being overzealous
+
+""" Input =======================================
+
+let mapleader = ','
+
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+
+" Fold Mappings
+" set foldmethod=syntax
+" set foldnestmax=10
+" set nofoldenable
+" set foldlevel=0
+
+set conceallevel=0
+
+inoremap <leader>z <C-O>za
+nnoremap <leader>z za
+onoremap <leader>z <C-C>za
+vnoremap <leader>z zf
+
+
+" Use <leader>/ to clear search highlight
+nmap <silent> <leader>/ :nohlsearch<CR>
+" Use <leader>> and <leader>< to jump between ALE errors
+nmap <silent> <leader>> :ALENextWrap<CR>
+nmap <silent> <leader>< :ALEPreviousWrap<CR>
+
+
+""" Display =====================================
+
+set scrolloff=20
+set pastetoggle=<F2>
+set listchars=tab:\|.,trail:.,extends:#,nbsp:.
+
+Plug 'universal-ctags/ctags'           " ctags implementation
+
+" Plug 'majutsushi/tagbar'               " Displays tags in a window
+" nmap <F8> :TagbarToggle<CR>
+
+
+""" Utilities ===================================
+
+Plug 'tpope/vim-eunuch'                " Helpers for UNIX
+Plug 'tpope/vim-dispatch'              " Async Build/Test
+Plug 'benmills/vimux'                  " tmux Integration
+
+
+" fzf and searching
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+
+" fuzzy search by filename
+" but it errors out if i'm not in a git repo
+nnoremap <C-p> :GFiles<cr>
+" Fallback non-git search
+nnoremap <C-S-p> :Files<cr>
+" fuzzy search with ag
+nnoremap <C-g> :Ag<Cr>
+
+
+""" Languages ===================================
+
+" Set tabs and spacing for yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Fix auto-indentation for YAML files
+augroup yaml_fix
+    autocmd!
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+augroup END
+
+
+" Set shiftwidth to 2 for html
+au BufNewFile,BufRead *.html set shiftwidth=2
+
+" Auto creates tags for Go source files.
+" au BufWritePost *.go silent! !ctags -R &
+
+" au BufWritePost *.pp silent! !puppet-lint -f <afile>| redraw!
+" au BufWritePost *.pp silent !puppet-lint -f <afile>
+
+Plug 'rodjek/vim-puppet'
+
+Plug 'sheerun/vim-polyglot'            " Language Support
+let g:polyglot_disabled = ['go']
+
+" JSX Config
+Plug 'mxw/vim-jsx'
+
+" ALE
+Plug 'w0rp/ale'
+
+" Linter configuration
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'go': ['gopls', 'golangci-lint'],
+      \ 'terraform': ['terraform', 'tflint'],
+      \ 'markdown':['mdl','write-good', 'proselint'],
+      \ 'yaml':['yaml-language-server']
+      \ }
+
+" Fixer configuration
+let g:ale_fixers = {'*':['remove_trailing_lines', 'trim_whitespace'],'go': ['gofmt', 'gofumpt'], 'puppet': ['puppetlint'], 'terraform': ['terraform']}
+
+let g:ale_fix_on_save = 1
+
+let g:ale_puppet_puppetlint_options = '--no-class_inherits_from_params_class-check --no-140chars-check --no-autoloader_layout-check'
+
+let g:ale_completion_enabled = 1
+
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 1
+
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
+let g:ale_go_golangci_lint_options = '--enable-all --disable "depguard,varnamelen,interfacer,ifshort,exhaustivestruct,maligned,varcheck,scopelint,structcheck,deadcode,nosnakecase,golint" --timeout=30s --tests'
+
+let g:ale_yaml_ls_config = {
+      \ 'yaml': {
+      \ 'schemastore': {
+      \   'enable': v:true
+      \ },
+      \ 'schemas': {
+      \   'https://json.schemastore.org/drone.json': '.drone.yml',
+      \ }
+      \ }
+      \ }
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_sign_column_always = 1
+
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+
+let g:ale_list_window_size = 7
+
+
+""" Editor ======================================
+
+set list                               " Show whitespace
+set ruler                              " Show line/cursor position
+set number                             " Show line numbers
+set wrap linebreak nolist
+autocmd BufWritePre * %s/\s\+$//e      " Delete trailing whitespace on save
+
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set list
+
+Plug 'tpope/vim-sleuth'                " Heuristically set buffer options
+Plug 'nathanaelkane/vim-indent-guides' " Visaully display indent level
+
+Plug 'junegunn/vim-easy-align'         " Easier text alignment
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'tpope/vim-surround'              " Quoting/Parenthesizing made simple
+Plug 'junegunn/limelight.vim'          " Hyperfocus-writing in Vim
+
+""" Status Line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+
+""" Theme =======================================
+
+Plug 'mtglsk/mushroom'
+Plug 'Nequo/vim-allomancer'
+
+" set termguicolors "Remove this in urxvt
+set background=dark
+colorscheme slate
+
+
+""" Version Control System ======================
+
+Plug 'airblade/vim-gitgutter'          " Show git diff in the gutter
+  nmap <Leader>ha <Plug>GitGutterStageHunk
+  nmap <Leader>hr <Plug>GitGutterUndoHunk
+
+Plug 'tpope/vim-fugitive'              " Git wrapper
+Plug 'tpope/vim-git'                   " Git integration
+Plug 'mattn/gist-vim'                  " Gist upload (GitHub)
+
+" Something in here seems to be setting shiftwidth to 3
+" which makes for dumb looking Python code.
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+call plug#end()
