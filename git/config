@@ -1,8 +1,8 @@
 [init]
 	defaultBranch = main
 [user]
-	name = pseudometa
-	email = 73286100+chrisgrieser@users.noreply.github.com
+	name = Nick Dumas
+	email = drakonik@gmail.com
 [color]
 	diff = auto
 	status = auto
@@ -10,7 +10,7 @@
 	interactive = auto
 	ui = true
 [core]
-	editor = nvim
+	editor = vim
 	autocrlf = input
 [pager]
 	branch = false
@@ -22,20 +22,25 @@
 	# https://git-scm.com/docs/git-config#Documentation/git-config.txt-advice
 	statusHints = false
 	detachedHead = false
-
-#───────────────────────────────────────────────────────────────────────────────
-
+[alias]
+        st = status -sb
+        l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+        b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+        ds = diff --staged
 # Diff-related
-[core]
-	pager = delta
+[push]
+	default = current
+	autoSetupRemote = true
 [interactive]
 	diffFilter = delta --color-only
 [merge]
 	conflictstyle = diff3
 [diff]
 	colorMoved = default
-[delta]
-	# side-by-side-view: deactivate line numbers in but keep vertical separator
-	line-numbers-left-format = ""
-	line-numbers-right-format = "│ "
-
+	algorithm = patience
+	tool = vimdiff
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
