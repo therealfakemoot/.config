@@ -48,6 +48,8 @@ let mapleader = ','
 
 set conceallevel=0
 
+" Fold stuff
+" Why? what does it do?
 inoremap <leader>z <C-O>za
 nnoremap <leader>z za
 onoremap <leader>z <C-C>za
@@ -67,18 +69,8 @@ set scrolloff=20
 set pastetoggle=<F2>
 set listchars=tab:\|.,trail:.,extends:#,nbsp:.
 
-Plug 'universal-ctags/ctags'           " ctags implementation
-
-" Plug 'majutsushi/tagbar'               " Displays tags in a window
-" nmap <F8> :TagbarToggle<CR>
-
 
 """ Utilities ===================================
-
-Plug 'tpope/vim-eunuch'                " Helpers for UNIX
-Plug 'tpope/vim-dispatch'              " Async Build/Test
-Plug 'benmills/vimux'                  " tmux Integration
-
 
 " fzf and searching
 
@@ -113,19 +105,9 @@ augroup END
 " Set shiftwidth to 2 for html
 au BufNewFile,BufRead *.html set shiftwidth=2
 
-" Auto creates tags for Go source files.
-" au BufWritePost *.go silent! !ctags -R &
-
-" au BufWritePost *.pp silent! !puppet-lint -f <afile>| redraw!
-" au BufWritePost *.pp silent !puppet-lint -f <afile>
-
-Plug 'rodjek/vim-puppet'
-
-Plug 'sheerun/vim-polyglot'            " Language Support
+" Language Support
+Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['go']
-
-" JSX Config
-Plug 'mxw/vim-jsx'
 
 " ALE
 Plug 'w0rp/ale'
@@ -157,6 +139,9 @@ let g:ale_set_quickfix = 1
 
 let g:ale_go_golangci_lint_options = '--enable-all --disable "depguard,varnamelen,interfacer,ifshort,exhaustivestruct,maligned,varcheck,scopelint,structcheck,deadcode,nosnakecase,golint" --timeout=30s --tests'
 
+" hate this a lot
+" maybe this is why people
+" get sucked into nvim and lua
 let g:ale_yaml_ls_config = {
       \ 'yaml': {
       \ 'schemastore': {
@@ -167,9 +152,6 @@ let g:ale_yaml_ls_config = {
       \ }
       \ }
       \ }
-
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:airline#extensions#ale#enabled = 1
 
@@ -195,18 +177,12 @@ set list
 Plug 'tpope/vim-sleuth'                " Heuristically set buffer options
 Plug 'nathanaelkane/vim-indent-guides' " Visaully display indent level
 
-Plug 'junegunn/vim-easy-align'         " Easier text alignment
-  xmap ga <Plug>(EasyAlign)
-  nmap ga <Plug>(EasyAlign)
 
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'tpope/vim-surround'              " Quoting/Parenthesizing made simple
-Plug 'junegunn/limelight.vim'          " Hyperfocus-writing in Vim
 
 """ Status Line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 
 """ Theme =======================================
 
@@ -217,7 +193,6 @@ Plug 'Nequo/vim-allomancer'
 set background=dark
 colorscheme slate
 
-
 """ Version Control System ======================
 
 Plug 'airblade/vim-gitgutter'          " Show git diff in the gutter
@@ -225,8 +200,6 @@ Plug 'airblade/vim-gitgutter'          " Show git diff in the gutter
   nmap <Leader>hr <Plug>GitGutterUndoHunk
 
 Plug 'tpope/vim-fugitive'              " Git wrapper
-Plug 'tpope/vim-git'                   " Git integration
-Plug 'mattn/gist-vim'                  " Gist upload (GitHub)
 
 " Something in here seems to be setting shiftwidth to 3
 " which makes for dumb looking Python code.
