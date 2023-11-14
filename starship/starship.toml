@@ -5,7 +5,6 @@
 add_newline = false
 continuation_prompt = "❯"
 format = """[$directory\
-${custom.folder_number}\
 $git_branch\
 $git_status\
 $git_metrics\
@@ -17,13 +16,6 @@ $sudo\
 $cmd_duration\
 $status\
 $character\
-"""
-
-right_format="""$package\
-$nodejs\
-$python\
-$jobs\
-$memory_usage\
 """
 
 # ⏼⏻⟐ﰉﰊ★ﮊגּﮏ﫜ﲮﲭﱬﳄﯖﴣﯟﯢﳝﯶﯾ卵擄勞ﮧ閭ﴯﰪﭾ璉ﲅ晴ﲊ羽⚡
