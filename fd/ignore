@@ -1,9 +1,3 @@
-# encrypted data
-Academia/PhD Data/
-
-# Neovim
-packer_compiled.lua
-
 # Mac Stuff
 .DS_Store
 .Trash
@@ -11,24 +5,8 @@ packer_compiled.lua
 Icon
 
 
-# Sublime
-*.sublime-workspace
-
 # git
 **/.git
 
-# Backup folder
-Dotfolder/Backups/
-
-# useless stuff inside pseudo-apps
-**/*.popclipext/*
-**/*.app/*
-**/*.pxd/*
-
 # vim spellcheck binary
 *.spl
-
-# inside Alfred prefs
-Alfred.alfredpreferences/**
-!Alfred.alfredpreferences/workflows/
-*-*-*-*-*.png
