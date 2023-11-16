@@ -1,6 +1,6 @@
 # https://www.soberkoder.com/better-zsh-history/
 
-export HISTSIZE=1500
+export HISTSIZE=5000
 export SAVEHIST=$HISTSIZE
 
 # so it isn't saved in the dotfile repo (privacy), but still synced

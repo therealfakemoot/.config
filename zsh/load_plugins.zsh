@@ -12,10 +12,6 @@ if [[ $(uname -p) == "i386" ]]; then
 	compaudit | xargs chmod g-w
 fi
 
-# Magic enter
-source "$DOTFILE_FOLDER/zsh/plugins/magic_enter.zsh"
-
 # Starship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-[[ "$TERM" == "Warp" ]] && export STARSHIP_CONFIG=~/.config/starship/starship-warp.toml

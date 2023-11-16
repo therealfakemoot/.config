@@ -11,18 +11,7 @@ CONFIG+=('completions')
 CONFIG+=('terminal-keybindings')
 CONFIG+=('docs_man')
 CONFIG+=('git_github')
-CONFIG+=('homebrew')
 CONFIG+=('vi-mode')
-
-# Terminal specific
-if [[ $TERM == "Warp" ]]; then
-	cd "$WD" || return
-elif [[ $TERM == "alacritty" ]]; then
-	# INFO if $TERM is not set for alacritty, reinstall alacritty, which
-	# recreates the required ~/.terminfo directory.
-	CONFIG+=('alacritty_theme_utilities')
-	CONFIG+=('intro-messages')
-fi
 
 for config_file in "${CONFIG[@]}"; do
 	# shellcheck disable=1090
