@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 # shellcheck disable=SC2034,SC2164,SC1071
 
+set -e -u -o pipefail
 setopt INTERACTIVE_COMMENTS
-# ask for credentials upfront
-sudo -v
+
 DOTFILE_FOLDER="$HOME/work/personal/dotfiles/"
 
 #-------------------------------------------------------------------------------
@@ -24,3 +24,6 @@ ln -sf "$DOTFILE_FOLDER/vim/vimrc" ~
 
 [[ -e ~/.config/starship/starship.toml ]] && rm -fv ~/.config/starship/starship.toml
 ln -sf "$DOTFILE_FOLDER/starship/starship.toml" ~
+
+[[ -e ~/.tmux.conf ]] && rm -fv ~/.tmux.conf
+ln -sf "$DOTFILE_FOLDER/tmux/tmux.conf" ~
