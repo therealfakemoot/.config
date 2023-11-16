@@ -11,22 +11,22 @@ DOTFILE_FOLDER="$HOME/work/personal/dotfiles/"
 
 # zsh (ZDOTDIR set in .zshenv for the remaining config)
 [[ -e ~/.zshenv ]] && rm -fv ~/.zshenv
-ln -sf "$DOTFILE_FOLDER/zsh/.zshenv" ~/.zshenv
+ln -sfv "$DOTFILE_FOLDER/zsh/.zshenv" ~/.zshenv
 
 [[ -e ~/.wezterm.lua ]] && rm -fv ~/.wezterm.lua
-ln -sf "$DOTFILE_FOLDER/wezterm/wezterm.lua" ~/.wezterm.lua
+ln -sfv "$DOTFILE_FOLDER/wezterm/wezterm.lua" ~/.wezterm.lua
 
 [[ -e ~/.gitconfig ]] && rm -fv ~/.gitconfig
-ln -sf "$DOTFILE_FOLDER/git/config" ~/.gitconfig
+ln -sfv "$DOTFILE_FOLDER/git/config" ~/.gitconfig
 
 [[ -e ~/.vimrc ]] && rm -fv ~/.vimrc
-ln -sf "$DOTFILE_FOLDER/vim/vimrc" ~/.vimrc
+ln -sfv "$DOTFILE_FOLDER/vim/vimrc" ~/.vimrc
 
 [[ -e ~/.config/starship/starship.toml ]] && rm -fv ~/.config/starship/starship.toml
-ln -sf "$DOTFILE_FOLDER/starship/starship.toml" ~
+ln -sfv "$DOTFILE_FOLDER/starship/starship.toml" ~
 
 [[ -e ~/.tmux.conf ]] && rm -fv ~/.tmux.conf
-ln -sf "$DOTFILE_FOLDER/tmux/tmux.conf" ~/.tmux.conf
+ln -sfv "$DOTFILE_FOLDER/tmux/tmux.conf" ~/.tmux.conf
 
 [[ -e ~/.config/fd/ignore ]] && rm -fv ~/.config/fd/ignore
-ln -sf "$DOTFILE_FOLDER/fd" ~/.config/fd/ignore
+ln -sfv "$DOTFILE_FOLDER/fd" ~/.config/fd/ignore
