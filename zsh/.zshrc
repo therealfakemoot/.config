@@ -3,7 +3,6 @@ printf '\33c\e[3J' # remove last login message https://stackoverflow.com/a/69915
 
 CONFIG=()
 CONFIG+=('load_plugins')
-CONFIG+=('terminal_utils')
 CONFIG+=('aliases')
 CONFIG+=('history_config')
 CONFIG+=('general_and_plugin_configs')
