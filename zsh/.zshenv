@@ -22,6 +22,9 @@ export ZDOTDIR="$DOTFILE_FOLDER/zsh"
 
 # vidir availability
 export PATH="$DOTFILE_FOLDER/zsh/plugins":$PATH
+# Add Python binaries to path
+export PATH="$HOME/Library/Python/3.9/bin":$PATH
+
 
 # NEOVIM: completions for cmp-zsh https://github.com/tamago324/cmp-zsh#configuration
 [[ -d $HOME/.zsh/comp ]] && export FPATH="$HOME/.zsh/comp:$FPATH"

@@ -4,7 +4,8 @@
 set -e -u -o pipefail
 setopt INTERACTIVE_COMMENTS
 
-DOTFILE_FOLDER="$HOME/work/personal/dotfiles/"
+# No trailing slash
+DOTFILE_FOLDER="$HOME/personal/dotfiles"
 
 #-------------------------------------------------------------------------------
 # SYMLINKS
@@ -23,7 +24,7 @@ ln -sfv "$DOTFILE_FOLDER/git/config" ~/.gitconfig
 ln -sfv "$DOTFILE_FOLDER/vim/vimrc" ~/.vimrc
 
 [[ -e ~/.config/starship/starship.toml ]] && rm -fv ~/.config/starship/starship.toml
-ln -sfv "$DOTFILE_FOLDER/starship/starship.toml" ~
+ln -sf "$DOTFILE_FOLDER/starship/starship.toml" ~/.starship.toml
 
 [[ -e ~/.tmux.conf ]] && rm -fv ~/.tmux.conf
 ln -sfv "$DOTFILE_FOLDER/tmux/tmux.conf" ~/.tmux.conf
