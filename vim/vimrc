@@ -77,6 +77,8 @@ set listchars=tab:\|.,trail:.,extends:#,nbsp:.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+let $FZF_DEFAULT_COMMAND = "fd"
+
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
 
@@ -99,6 +101,7 @@ autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 augroup yaml_fix
     autocmd!
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+    autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
 augroup END
 
 
