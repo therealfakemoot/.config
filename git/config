@@ -3,6 +3,8 @@
 [user]
 	name = Nick Dumas
 	email = drakonik@gmail.com
+[commit]
+	verbose = true
 [color]
 	diff = auto
 	status = auto
@@ -15,13 +17,23 @@
 [pager]
 	branch = false
 [pull]
+	ff = only
 	rebase = true
+[rebase]
+	autoSquash = true
+	autoStash = true
 [status]
 	showUntrackedFiles = all
+	submoduleSummary = true
+[http]
+	followRedirects = true
 [advice]
 	# https://git-scm.com/docs/git-config#Documentation/git-config.txt-advice
 	statusHints = false
 	detachedHead = false
+[log]
+	abbrevCommit = true
+	decorate = auto
 [alias]
         st = status -sb
         l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
@@ -32,8 +44,11 @@
 	default = current
 	autoSetupRemote = true
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 [diff]
+	renames = copies
+	renameLimit = 20000
+	submodule = log
 	colorMoved = default
 	algorithm = patience
 	tool = vimdiff
@@ -42,3 +57,9 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[submodule]
+	recurse = true
+[pack]
+	useSparse = true
+[rerere]
+	enabled = true
