@@ -10,7 +10,7 @@ export TERM="xterm-256color"
 bindkey "^R" history-incremental-search-backward
 
 # Directories
-export DOTFILE_FOLDER="$HOME/work/personal/dotfiles/"
+export DOTFILE_FOLDER="$HOME/personal/dotfiles"
 
 # to prevent commit spam on dotfile repo, store data in iCloud instead
 # export DATA_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Dotfolder"
@@ -19,6 +19,10 @@ export DOTFILE_FOLDER="$HOME/work/personal/dotfiles/"
 export ZDOTDIR="$DOTFILE_FOLDER/zsh"
 
 #───────────────────────────────────────────────────────────────────────────────
+
+export GOBIN="$HOME/go/bin"
+# Add Go binaries to path
+export PATH="$GOBIN":$PATH
 
 # vidir availability
 export PATH="$DOTFILE_FOLDER/zsh/plugins":$PATH
